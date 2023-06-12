@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export interface ParagraphProps {
   gutter?: boolean;
+  small?: boolean;
 }
 
 export const Paragraph = styled.p<ParagraphProps>`
-  font-size: 2.125rem;
+  font-size: ${({ small }) => (small ? 1.75 : 2.125)}rem;
   letter-spacing: 0.5px;
   text-align: center;
   line-height: 1.5;

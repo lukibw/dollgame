@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import { Global, Container, Button, Header, Paragraph } from "./styled";
+import { Global, Container } from "./styled";
+import { Nav } from "./Nav";
+import { Router } from "./Router";
 import { theme } from "../theme";
 
 export function App() {
@@ -7,12 +9,8 @@ export function App() {
     <ThemeProvider theme={theme}>
       <Global />
       <Container>
-        <Header>Lalka</Header>
-        <Paragraph>
-          Gra przeglądarkowa inspirowana powieścią Bolesława Prusa
-        </Paragraph>
-        <Paragraph gutter>Zagraj teraz za darmo</Paragraph>
-        <Button>Zacznij teraz</Button>
+        <Nav />
+        <Router />
       </Container>
     </ThemeProvider>
   );
