@@ -1,16 +1,25 @@
 import { Switch, Route } from "wouter";
-import { Authors, Home, NotFound, Project } from "./routes";
+import {
+  HOME_ROUTE,
+  AUTHORS_ROUTE,
+  PROJECT_ROUTE,
+  GAME_ROUTE,
+} from "../constants";
+import { Authors, Game, Home, NotFound, Project } from "./routes";
 
 export function Router() {
   return (
     <Switch>
-      <Route path="/">
+      <Route path={HOME_ROUTE}>
         <Home />
       </Route>
-      <Route path="/project">
+      <Route path={GAME_ROUTE}>
+        <Game />
+      </Route>
+      <Route path={PROJECT_ROUTE}>
         <Project />
       </Route>
-      <Route path="/authors">
+      <Route path={AUTHORS_ROUTE}>
         <Authors />
       </Route>
       <Route>

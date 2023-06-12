@@ -1,24 +1,30 @@
 import { Link as WouterLink, useLocation } from "wouter";
 import { Navigation, Link } from "./styled";
+import {
+  AUTHORS_ROUTE,
+  HOME_ROUTE,
+  PROJECT_ROUTE,
+  GITHUB_REPO,
+  GAME_ROUTE,
+} from "../constants";
 
 export function Nav() {
   const [location] = useLocation();
   return (
     <Navigation>
-      <WouterLink href="/">
-        <Link active={location === "/"}>Strona Główna</Link>
+      <WouterLink href={HOME_ROUTE}>
+        <Link active={location === HOME_ROUTE}>Strona Główna</Link>
       </WouterLink>
-      <WouterLink href="/project">
-        <Link active={location === "/project"}>Projekt</Link>
+      <WouterLink href={GAME_ROUTE}>
+        <Link active={location === GAME_ROUTE}>Gra</Link>
       </WouterLink>
-      <WouterLink href="/authors">
-        <Link active={location === "/authors"}>Autorzy</Link>
+      <WouterLink href={PROJECT_ROUTE}>
+        <Link active={location === PROJECT_ROUTE}>Projekt</Link>
       </WouterLink>
-      <Link
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/lukibw/dollgame"
-      >
+      <WouterLink href={AUTHORS_ROUTE}>
+        <Link active={location === AUTHORS_ROUTE}>Autorzy</Link>
+      </WouterLink>
+      <Link target="_blank" rel="noopener noreferrer" href={GITHUB_REPO}>
         Github
       </Link>
     </Navigation>
