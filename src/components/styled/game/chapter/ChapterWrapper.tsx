@@ -6,4 +6,5 @@ export const ChapterWrapper = styled.div`
   display: block;
   position: relative;
   padding: 50px;
+  background-color: #000000;
 `;

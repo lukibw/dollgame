@@ -16,7 +16,7 @@ export function Nav() {
         <Link active={location === HOME_ROUTE}>Strona Główna</Link>
       </WouterLink>
       <WouterLink href={GAME_ROUTE}>
-        <Link active={location === GAME_ROUTE}>Gra</Link>
+        <Link active={location.startsWith(GAME_ROUTE)}>Gra</Link>
       </WouterLink>
       <WouterLink href={PROJECT_ROUTE}>
         <Link active={location === PROJECT_ROUTE}>Projekt</Link>

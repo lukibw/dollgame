@@ -1,5 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
-
+import { useLocation } from "wouter";
+import {
+  Header,
+  Paragraph,
+  StartContainer,
+  StartLabel,
+  StartWindow,
+  StartButton,
+  StartGroup,
+} from "../styled";
+import { story } from "../../story";
 import RozprawaSądowa from "../../assets/images/rozprawa_sądowa.jpg";
 import Adwokat from "../../assets/images/adwokat.png";
 import Baronowa from "../../assets/images/baronowa.png";
@@ -10,7 +20,7 @@ import Sędzia from "../../assets/images/sędzia.png";
 import Służąca from "../../assets/images/służąca.png";
 import Stawska from "../../assets/images/stawska.png";
 import Wokulski from "../../assets/images/wokulski.png";
-import { Header, Paragraph } from "../styled";
+import { GAME_ROUTE } from "../../constants";
 
 const assets = [
   RozprawaSądowa,
@@ -28,7 +38,11 @@ const assets = [
 type GameState = "loading" | "error" | "ready";
 
 export function Game() {
+  const [, setLocation] = useLocation();
   const [state, setState] = useState<GameState>("loading");
+  const handlePreviewClick = (slug: string) => () => {
+    setLocation(`${GAME_ROUTE}/${encodeURIComponent(slug)}`);
+  };
   const load = useCallback(async () => {
     try {
       await Promise.all(
@@ -61,6 +75,23 @@ export function Game() {
       <Header small gutter>
         Gra
       </Header>
+      <StartGroup>
+        {Object.entries(story.chapters).map(
+          ([slug, { background, name }], index) => (
+            <StartContainer
+              role="button"
+              tabIndex={0}
+              key={index}
+              onClick={handlePreviewClick(slug)}
+            >
+              <StartLabel>{name}</StartLabel>
+              <StartWindow background={background}>
+                <StartButton as="div">Wejdź do gry</StartButton>
+              </StartWindow>
+            </StartContainer>
+          )
+        )}
+      </StartGroup>
     </>
   );
 }
