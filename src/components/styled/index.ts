@@ -1,3 +1,4 @@
+export * from "./game";
 export { Button } from "./Button";
 export { Container } from "./Container";
 export { Global } from "./Global";
