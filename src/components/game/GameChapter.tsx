@@ -3,7 +3,12 @@ import { DefaultParams } from "wouter";
 import { NotFound } from "../routes";
 import { GameEntry, GameDialog, GameFailure, GameSuccess } from "../game";
 import { story, StoryDialog, StoryEnd } from "../../story";
-import { ChapterBackground, ChapterMain, ChapterWrapper } from "../styled";
+import {
+  Audio,
+  ChapterBackground,
+  ChapterMain,
+  ChapterWrapper,
+} from "../styled";
 
 export interface GameChapterParams extends DefaultParams {
   slug?: string;
@@ -26,7 +31,7 @@ export function GameChapter({ params }: GameChapterProps) {
   }
   return (
     <ChapterWrapper>
-      <ChapterBackground source={chapter.background} />
+      <ChapterBackground source={chapter.image} />
       <ChapterMain>
         {!dialog ? (
           <GameEntry
@@ -35,12 +40,15 @@ export function GameChapter({ params }: GameChapterProps) {
             onStart={() => setDialog(chapter.dialogs[1])}
           />
         ) : "choices" in dialog ? (
-          <GameDialog
-            text={dialog.text}
-            characterId={dialog.characterId}
-            choices={dialog.choices}
-            onChoice={(choice) => setDialog(chapter.dialogs[choice.next])}
-          />
+          <>
+            <Audio src={chapter.audio} autoPlay loop />
+            <GameDialog
+              text={dialog.text}
+              characterId={dialog.characterId}
+              choices={dialog.choices}
+              onChoice={(choice) => setDialog(chapter.dialogs[choice.next])}
+            />
+          </>
         ) : dialog.success ? (
           <GameSuccess message={dialog.text} />
         ) : (

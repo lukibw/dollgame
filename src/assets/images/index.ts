@@ -1,0 +1,10 @@
+export { default as RozprawaSądowaImage } from "./rozprawa_sądowa.jpg";
+export { default as AdwokatImage } from "./adwokat.png";
+export { default as BaronowaImage } from "./baronowa.png";
+export { default as DzieckoImage } from "./dziecko.png";
+export { default as MaruszewiczImage } from "./maruszewicz.png";
+export { default as RzeckiImage } from "./rzecki.png";
+export { default as SędziaImage } from "./sędzia.png";
+export { default as SłużącaImage } from "./służąca.png";
+export { default as StawskaImage } from "./stawska.png";
+export { default as WokulskiImage } from "./wokulski.png";

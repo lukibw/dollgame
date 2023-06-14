@@ -11,7 +11,8 @@ export interface StoryCharacter {
 export interface StoryChapter {
   name: string;
   description: string;
-  background: string;
+  audio: string;
+  image: string;
   dialogs: Record<number, StoryDialog | StoryEnd>;
 }
 

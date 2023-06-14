@@ -1,14 +1,17 @@
 import { Story, StoryChapter, StoryCharacter } from "./types";
-import RozprawaSądowa from "../assets/images/rozprawa_sądowa.jpg";
-import Adwokat from "../assets/images/adwokat.png";
-import Baronowa from "../assets/images/baronowa.png";
-import Dziecko from "../assets/images/dziecko.png";
-import Maruszewicz from "../assets/images/maruszewicz.png";
-import Rzecki from "../assets/images/rzecki.png";
-import Sędzia from "../assets/images/sędzia.png";
-import Służąca from "../assets/images/służąca.png";
-import Stawska from "../assets/images/stawska.png";
-import Wokulski from "../assets/images/wokulski.png";
+import {
+  RzeckiImage,
+  SędziaImage,
+  AdwokatImage,
+  DzieckoImage,
+  StawskaImage,
+  SłużącaImage,
+  BaronowaImage,
+  WokulskiImage,
+  MaruszewiczImage,
+  RozprawaSądowaImage,
+  RozprawaSądowaAudio,
+} from "../assets";
 
 const ADWOKAT = 1;
 const BARONOWA = 2;
@@ -27,39 +30,39 @@ const WIRSKI = 13;
 const characters: Record<number, StoryCharacter> = {
   [ADWOKAT]: {
     name: "Adwokat",
-    image: Adwokat,
+    image: AdwokatImage,
   },
   [BARONOWA]: {
     name: "Baronowa Krzeszowska",
-    image: Baronowa,
+    image: BaronowaImage,
   },
   [DZIECKO]: {
     name: "Helunia",
-    image: Dziecko,
+    image: DzieckoImage,
   },
   [MARUSZEWICZ]: {
     name: "Maruszewicz",
-    image: Maruszewicz,
+    image: MaruszewiczImage,
   },
   [RZECKI]: {
     name: "Ignacy Rzecki",
-    image: Rzecki,
+    image: RzeckiImage,
   },
   [SĘDZIA]: {
     name: "Sędzia",
-    image: Sędzia,
+    image: SędziaImage,
   },
   [SŁUŻĄCA]: {
     name: "Służąca",
-    image: Służąca,
+    image: SłużącaImage,
   },
   [STAWSKA]: {
     name: "Helena Stawska",
-    image: Stawska,
+    image: StawskaImage,
   },
   [WOKULSKI]: {
     name: "Stanisław Wokulski",
-    image: Wokulski,
+    image: WokulskiImage,
   },
   [KOBIETA_1]: {
     name: "Kobieta 1",
@@ -80,7 +83,8 @@ const chapters: Record<string, StoryChapter> = {
     name: "Rozprawa Sądowa",
     description:
       "Baronowej Krzeszowskiej zniknęła lalka - jedyne, co pozostało jej po zmarłej córce. Jej podejrzenie pada na Helenę Stawską, córce której ta lalka bardzo się spodobała. Ostatecznie baronowa błędnie oskarża Stawską i składa na nią pozew do sądu. Pomóż Stawskiej wygrać proces sądowy i nie zostać bezpodstawnie ukaraną.",
-    background: RozprawaSądowa,
+    audio: RozprawaSądowaAudio,
+    image: RozprawaSądowaImage,
     dialogs: {
       1: {
         text: "Sędzia przez parę minut coś pisał, a skończywszy zawiadomił obecnych, że teraz toczyć się będzie sprawa",

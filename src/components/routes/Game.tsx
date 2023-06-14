@@ -9,30 +9,32 @@ import {
   StartButton,
   StartGroup,
 } from "../styled";
+import {
+  RzeckiImage,
+  SędziaImage,
+  AdwokatImage,
+  DzieckoImage,
+  StawskaImage,
+  SłużącaImage,
+  BaronowaImage,
+  WokulskiImage,
+  MaruszewiczImage,
+  RozprawaSądowaImage,
+} from "../../assets";
 import { story } from "../../story";
-import RozprawaSądowa from "../../assets/images/rozprawa_sądowa.jpg";
-import Adwokat from "../../assets/images/adwokat.png";
-import Baronowa from "../../assets/images/baronowa.png";
-import Dziecko from "../../assets/images/dziecko.png";
-import Maruszewicz from "../../assets/images/maruszewicz.png";
-import Rzecki from "../../assets/images/rzecki.png";
-import Sędzia from "../../assets/images/sędzia.png";
-import Służąca from "../../assets/images/służąca.png";
-import Stawska from "../../assets/images/stawska.png";
-import Wokulski from "../../assets/images/wokulski.png";
 import { GAME_ROUTE } from "../../constants";
 
-const assets = [
-  RozprawaSądowa,
-  Adwokat,
-  Baronowa,
-  Dziecko,
-  Maruszewicz,
-  Rzecki,
-  Sędzia,
-  Służąca,
-  Stawska,
-  Wokulski,
+const images = [
+  RzeckiImage,
+  SędziaImage,
+  AdwokatImage,
+  DzieckoImage,
+  StawskaImage,
+  SłużącaImage,
+  BaronowaImage,
+  WokulskiImage,
+  MaruszewiczImage,
+  RozprawaSądowaImage,
 ];
 
 type GameState = "loading" | "error" | "ready";
@@ -46,13 +48,13 @@ export function Game() {
   const load = useCallback(async () => {
     try {
       await Promise.all(
-        assets.map(
-          (asset) =>
+        images.map(
+          (image) =>
             new Promise((resolve, reject) => {
-              const image = new Image();
-              image.src = asset;
-              image.onload = resolve;
-              image.onerror = reject;
+              const img = new Image();
+              img.src = image;
+              img.onload = resolve;
+              img.onerror = reject;
             })
         )
       );
@@ -77,7 +79,7 @@ export function Game() {
       </Header>
       <StartGroup>
         {Object.entries(story.chapters).map(
-          ([slug, { background, name }], index) => (
+          ([slug, { image, name }], index) => (
             <StartContainer
               role="button"
               tabIndex={0}
@@ -85,7 +87,7 @@ export function Game() {
               onClick={handlePreviewClick(slug)}
             >
               <StartLabel>{name}</StartLabel>
-              <StartWindow background={background}>
+              <StartWindow background={image}>
                 <StartButton as="div">Wejdź do gry</StartButton>
               </StartWindow>
             </StartContainer>
