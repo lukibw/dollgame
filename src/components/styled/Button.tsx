@@ -23,4 +23,12 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.colors.background};
     background-color: ${({ theme }) => theme.colors.text};
   }
+
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 0.875rem;
+  }
 `;

@@ -1,4 +1,5 @@
 export * from "./game";
+export * from "./menu";
 export { Audio } from "./Audio";
 export { Button } from "./Button";
 export { Container } from "./Container";

@@ -11,4 +11,12 @@ export const DialogText = styled.p`
   max-width: 1000px;
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.body};
+
+  @media (max-width: 1000px) {
+    font-size: 1.625rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.125rem;
+  }
 `;

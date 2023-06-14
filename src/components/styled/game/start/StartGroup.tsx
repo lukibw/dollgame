@@ -8,4 +8,8 @@ export const StartGroup = styled.div`
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 480px));
+  }
 `;

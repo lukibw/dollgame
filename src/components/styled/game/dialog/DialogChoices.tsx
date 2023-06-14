@@ -5,4 +5,8 @@ export const DialogChoices = styled.div`
   flex-direction: column;
   align-items: stretch;
   min-width: 500px;
+
+  @media (max-width: 1200px) {
+    min-width: 100%;
+  }
 `;

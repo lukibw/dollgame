@@ -12,4 +12,16 @@ export const Container = styled.div`
   padding: 60px;
   z-index: 1;
   background-color: ${({ theme }) => theme.colors.background};
+
+  @media (max-width: 1000px) {
+    padding: 48px;
+  }
+
+  @media (max-width: 500px) {
+    padding: 36px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 12px;
+  }
 `;

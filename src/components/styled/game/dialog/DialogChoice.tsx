@@ -32,4 +32,14 @@ export const DialogChoice = styled.button`
     color: ${({ theme }) => theme.colors.background};
     background-color: ${({ theme }) => theme.colors.primary};
   }
+
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 0.875rem;
+    padding: 8px 16px;
+  }
 `;
