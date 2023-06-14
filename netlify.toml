@@ -1,0 +1,21 @@
+[build]
+    publish = "build"
+    command = "npm run build"
+
+[build.environment]
+    GENERATE_SOURCEMAP = "false"
+
+[[redirects]]
+    from = "/"
+    to = "/index.html"
+    status = 200
+
+[[headers]]
+    for = "/*"
+    [headers.values]
+        Cache-Control = "no-cache"
+
+[[headers]]
+    for = "/static/*"
+    [headers.values]
+        Cache-Control = "max-age=31536000"
